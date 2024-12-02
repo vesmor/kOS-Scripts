@@ -10,6 +10,7 @@ DECLARE LOCAL logging IS FALSE.
 DECLARE LOCAL targetAltitude IS 100.
 DECLARE LOCAL desired_twr IS 1.3.
 DECLARE LOCAL startingFuel IS 0.
+DECLARE LOCAL endingFlightFuel IS 0.1.
 LOCK currFuelPercentage TO 0.
 LOCK vehicle_gravity TO ((kerbin:mu) / (ship:altitude + body:radius)^2).
 
@@ -50,7 +51,7 @@ function hover{
 
     SET pid:SETPOINT TO targetAltitude.
 
-    UNTIL currFuelPercentage < 0.10{
+    UNTIL currFuelPercentage < endingFlightFuel{
         
        
 
